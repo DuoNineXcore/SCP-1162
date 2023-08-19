@@ -14,9 +14,31 @@ namespace SCP1162
 
         [Description("Use Hints instead of Broadcast?")]
         public bool UseHints { get; set; } = true;
+
+        [Description("If enabled, it will use SCP-173's New containment chamber located in HCZ, instead of LCZ's 173 Containment Chamber.")]
+        public bool UseNew173Spawn { get; set; }
+
+        [Description("Determines if SCP-1162 has a chance to punish players for extended use.")]
+        public bool SCP1162Hurts { get; set; }
+
+        [Description("The maximum number of times a player can be hurt by SCP-1162 before dying.")]
+        public int HurtLimit { get; set; } = 5;
+
+        [Description("Determines if the chances of getting hurt increase exponentially with each use of SCP-1162.")]
+        public bool ExponentialHurtChances { get; set; } = false;
+
+        [Description("The base chance (in percentage) for a player to get hurt while using SCP-1162.")]
+        public int HurtChance { get; set; } = 50;
+
+        [Description("The message displayed to the player when they're hurt by SCP-1162")]
+        public string HurtMessage { get; set; } = "<b><size=20><color=red>[SCP-1162]</color> You feel a sharp excruciating pain trying to use SCP-1162.</size></b>";
+
         [Description("Change the message that displays when you drop an item through SCP-1162.")]
-        public string ItemDropMessage { get; set; } = "<i>You try to drop the item through <color=yellow>SCP-1162</color> to get another...</i>";
-        public ushort ItemDropMessageDuration { get; set; } = 5;
+        public string ItemDropMessage { get; set; } = "<b><size=20><color=green>[SCP-1162]</color> You try to drop the item to get another.</size></b>";
+
+        [Description("The Duration of the messages displayed by SCP-1162.")]
+        public ushort MessageDuration { get; set; } = 5;
+
         [Description("The list of item chances.")]
         public List<ItemType> Chances { get; set; } = new List<ItemType>
         {
